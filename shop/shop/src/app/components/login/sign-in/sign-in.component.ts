@@ -67,33 +67,20 @@ export class SignInComponent implements OnInit {
       let obj  = {"email": email};
 
       this.http.post('https://us-central1-shop-8339f.cloudfunctions.net/getEmailStatus', obj)
-      .subscribe((response) => {
-        console.log(response);
-      }, error => {
-        console.log(error);
-      });
-
-      
-
-      // this.userService.getUserByEmail(email).take(1).subscribe((next) => {
-      // console.log('user in subscription ' + JSON.stringify(next));
-      // user = next;
-      // }, 
-      // (error) => {
-      //   this.errorMessage = "You are not registered!";
-      // },
-      // ()  => {
-      //   if(!user){
-      //     this.errorMessage = "You are not registered!"
-      //   }
-      //   else if (user && user.isEmailVerified){
-      //     this.authService.login(value, controls['email'].value, controls['password'].value, controls['isRememberMe'].value)
-      //     .catch(error => this.errorMessage = error.message); 
-      //   }
-      //   else {
-      //       this.errorMessage = "Your email address is not verified! Verification mail was sent to your email address";
-      //   }
-      // });         
+      .take(1).subscribe((response) => {
+        if(response['isEmailVerified']){
+          this.authService.login(value, controls['email'].value, controls['password'].value, controls['isRememberMe'].value)
+          .catch(error => this.errorMessage = error.message); 
+        }
+        else{
+           console.log(response['errorMessage']);
+           this.errorMessage =  response['errorMessage'];
+        }
+      }, 
+    error => {
+      console.log(error['errorMessage']);
+           this.errorMessage =  error['errorMessage'];
+    });
     }
     else {
       this.authService.login(value).catch(error => this.errorMessage = error.message);  

@@ -38,6 +38,7 @@ exports.getEmailStatus = functions.https.onRequest((req, res) => {
             .catch((error) => {
             let response = { errorMessage: error.message,
                 errorCode: error.code };
+            console.log(response);
             res.status(400).send(response);
         });
     });
