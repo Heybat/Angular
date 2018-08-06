@@ -1,0 +1,22 @@
+[debug] [2018-08-04T19:36:45.559Z] ----------------------------------------------------------------------
+[debug] [2018-08-04T19:36:45.562Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\ccheybet\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase deploy
+[debug] [2018-08-04T19:36:45.562Z] CLI Version:   4.0.2
+[debug] [2018-08-04T19:36:45.562Z] Platform:      win32
+[debug] [2018-08-04T19:36:45.562Z] Node Version:  v8.11.1
+[debug] [2018-08-04T19:36:45.562Z] Time:          Sat Aug 04 2018 23:36:45 GMT+0400 (Azerbaijan Standard Time)
+[debug] [2018-08-04T19:36:45.562Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-08-04T19:36:45.574Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-08-04T19:36:45.575Z] > authorizing via signed-in user
+[debug] [2018-08-04T19:36:45.578Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/shop-8339f  
+  
+ Sat Aug 04 2018 23:36:45 GMT+0400 (Azerbaijan Standard Time)
+[debug] [2018-08-04T19:36:47.221Z] <<< HTTP RESPONSE 200
+[debug] [2018-08-04T19:36:47.224Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/shop-8339f/tokens  
+  
+ Sat Aug 04 2018 23:36:47 GMT+0400 (Azerbaijan Standard Time)
+[debug] [2018-08-04T19:36:56.892Z] Error: read ECONNRESET
+    at _errnoException (util.js:1022:11)
+    at TLSWrap.onread (net.js:628:25)
+[error] 
+[error] Error: Server Error. read ECONNRESET

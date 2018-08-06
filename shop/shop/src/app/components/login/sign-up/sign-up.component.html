@@ -1,0 +1,133 @@
+<h5>Sign up</h5>
+<br>
+<br>
+<form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-check form-check-inline">
+        <input formControlName="gender" class="form-check-input" type="radio" name="gender" id="male" value="male" #male>
+        <label class="form-check-label" for="male">Male</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input formControlName="gender" class="form-check-input" type="radio" name="gender" id="female" value="female" #female>
+        <label class="form-check-label" for="female">Female</label>
+    </div>
+    <div class="error" *ngIf="isControlInvalid('gender')">
+            Gender is required!
+    </div>
+
+    <br>
+    <br>
+
+    <div class="form-group">
+        <label for="first-name">First name</label>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span *ngIf="!male.checked && !female.checked" class="input-group-text" id="basic-addon1"><img src="assets/images/unisex.png" alt="female"></span>
+                <span *ngIf="male.checked" class="input-group-text" id="basic-addon2"><img src="assets/images/male.png" alt="female"></span>
+                <span *ngIf="female.checked;" class="input-group-text" id="basic-addon3"><img src="assets/images/female.png" alt="female"></span>
+            </div>
+          <input formControlName="firstName" type="text" class="form-control" id="first-name" aria-describedby="firstNameHelp" placeholder="Enter first name">
+        </div>
+        <div class="error" *ngIf="isControlInvalid('firstName')">
+                First name is required!
+        </div>
+    </div>
+
+
+      <div class="form-group">
+          <label for="last-name">Last Name</label>
+          <div class="input-group">
+              <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1"><img src="assets/images/passport.png" alt="passport"></span>
+              </div>
+              <input formControlName="lastName" type="text" class="form-control" id="last-name" aria-describedby="lastNameHelp" placeholder="Enter last name">
+          </div> 
+          <div class="error" *ngIf="isControlInvalid('lastName')">
+                Last name is required!
+          </div> 
+      </div>
+
+
+        <div class="form-group">
+          <label for="select-city">Select city</label>      
+          <div class="input-group">
+              <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1"><img src="assets/images/world.png" alt="world"></span>
+              </div>
+              <select formControlName="city" class="form-control" id="select-city">
+                  <option hidden value="null">Select city</option>
+                  <option *ngFor="let city of cities$ | async" [value]="city.key">{{city.name}}</option>
+               </select>
+          </div>
+          <div class="error" *ngIf="isControlInvalid('city')">
+                City must be selected!
+          </div> 
+        </div>
+
+
+        <div class="form-group">
+          <label for="address">Address</label>
+          <div class="input-group">
+              <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1"><img src="assets/images/home.png" alt="passport"></span>
+              </div>
+            <input formControlName="address" type="text" class="form-control" id="address" aria-describedby="addressHelp" placeholder="Enter your address">
+        </div>  
+        <div class="error" *ngIf="isControlInvalid('address')">
+                Address is required!
+        </div>    
+    </div>
+
+
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <div class="input-group">
+          <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"><img src="assets/images/email.png" alt="passport"></span>
+          </div>
+          <input formControlName="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+      </div> 
+      <div class="error" *ngIf="isControlInvalid('email')">
+            Email is required!
+      </div>   
+    </div>
+
+
+    <div class="form-group">
+      <label for="sign-up-password">Password</label>
+      <div class="input-group">
+          <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"><img src="assets/images/pwd.png" alt="password"></span>
+          </div>
+          <input formControlName="password" type="password" class="form-control" id="sign-up-password" placeholder="Enter password">
+      </div>  
+      <div class="error" *ngIf="isControlInvalid('password')">
+            Password is required!
+      </div> 
+    </div>
+
+
+    <div class="form-group">
+        <label for="confirm-password">Confirm Password</label>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"><img src="assets/images/pwd.png" alt="password"></span>
+            </div>
+            <input formControlName="password2" type="password" class="form-control" id="confirm-password" placeholder="Enter password again">
+        </div> 
+        <div class="error" *ngIf="isControlInvalid('password2')">
+                 Password confirmation is required!
+        </div>  
+    </div>
+    <div class="firebase-error" *ngIf="errorMessage">
+        {{errorMessage}}
+    </div>
+    <div class="firebase-success" *ngIf="successMessage">
+        {{successMessage}}
+    </div>
+    
+    <br>
+    <button type="submit" class="btn btn-success">Submit</button>
+</form>
+
+  

@@ -1,0 +1,11 @@
+.categories {
+    position: sticky !important;
+    top: 70px !important;
+    z-index: 1 !important;
+}
+
+.active{
+    background-color: #28a745;
+    z-index: 0 !important;
+}
+

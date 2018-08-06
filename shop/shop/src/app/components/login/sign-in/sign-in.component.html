@@ -1,0 +1,43 @@
+<h5>Sign in</h5>
+<br>
+<br>
+<form [formGroup]="signInForm" (ngSubmit)="login(submit.value)">
+    <div class="form-group">
+      <label for="login" class="bold-label"><b>Login</b></label>
+      <input formControlName="email" type="text" class="form-control" id="login" placeholder="Enter email">
+    <div class="error" *ngIf="isControlInvalid('email')">
+          Enter email!
+    </div>
+    </div>
+    <div class="form-group">
+      <label for="password" class="bold-label"><b>Password</b></label>
+      <input formControlName="password" type="password" class="form-control" id="password" placeholder="Password">
+    <div class="error" *ngIf="isControlInvalid('password')">
+          Enter password!
+    </div>
+    </div>
+    <div class="form-group form-check">
+      <input formControlName="isRememberMe" type="checkbox" class="form-check-input" id="checkbox">
+      <label class="form-check-label" for="checkbox">Remember me</label>
+    </div>
+    <div class="forget-password" >
+      <a class="fp-a" (click)="showRestorePassword = !showRestorePassword">Forget Password</a>
+      <div class="fp-inner" [ngClass]="showRestorePassword ? 'fp-inner-show' : 'fp-inner-hide'">
+        <input #restore type="email" placeholder="Email for restoring password" class="form-control">
+        <button type="button" class="btn btn-success fp-button" (click)="restorePassword(restore.value)">Send</button>
+      </div>
+    </div>
+    <br>
+    <button type="submit" #submit value="emailAndPwd" class="btn btn-success">Sign in</button>
+    <div class="error" *ngIf="errorMessage">
+        {{errorMessage}}
+    </div>
+  </form>
+    <br>
+    <br>
+    <button type="button" #googleVar (click)="login(googleVar.value)" class="btn btn-success my-btn1" value="google"><img src="assets/images/google.png" alt="google" class="img1"> Sign in with Google</button>
+     <br>
+    <button type="button" #facebookVar (click)="login(facebookVar.value)" class="btn btn-success my-btn2" value="facebook"><img src="assets/images/facebook.png" alt="facebook" class="img2">Sign in with Facebook</button>
+
+ 
+    

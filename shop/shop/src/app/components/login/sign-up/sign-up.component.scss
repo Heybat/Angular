@@ -1,0 +1,46 @@
+.form-group, .form-check{
+    margin-left: 10%;
+}
+
+.form-group{
+    width: 500px;
+}
+
+button{
+    width: 200px;
+    margin-left: 30%;
+}
+
+img{
+    height: 24px;
+    width: 24px;
+}
+
+input.ng-touched.ng-invalid{
+    border-color: red;
+}
+
+select.ng-touched.ng-invalid{
+    border-color: red;
+}
+
+.error{
+    margin-left: 10%; 
+    color: red;
+}
+
+h5{
+    margin-left: 40%;
+}
+
+.firebase-error{
+    color: red;
+    margin-left: 20%;
+    width: 500px
+}
+
+.firebase-success{
+    color:green;
+    margin-left: 20%;
+    width: 500px
+}
